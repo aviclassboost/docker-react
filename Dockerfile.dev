@@ -1,0 +1,21 @@
+FROM node:latest
+
+WORKDIR '/app'
+
+COPY package.json .
+
+#RUN apt-get install curl python-software-properties
+#RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+#RUN apt-get install nodejs
+
+#RUN npm install -g npm@latest
+RUN npm install
+#RUN npm audit fix
+
+COPY . .
+
+
+#CMD ["apt-get","install","curl","python-software-properties"]
+#CMD ["curl","-sL","https://deb.nodesource.com/setup_10.x","|","sudo","-E","bash","-"]
+#CMD ["apt-get","install", "nodejs"]
+CMD ["npm", "run", "start"]
